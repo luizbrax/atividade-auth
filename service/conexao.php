@@ -1,27 +1,29 @@
 <?php
 
-class usePDO{
+class usePDO
+{
     private $servername = "localhost";
     private $username = "root";
     private $password = "";
-    private $dbname = "banco de dados";
+    private $dbname = "atv_auth";
     private $instance;
 
-function getInstance(){
-    if (empty($this->instance)){
-        $this->instance = $this->conection();
+    function getInstance()
+    {
+        if (empty($this->instance)) {
+            $this->instance = $this->conection();
+        }
+        return $this->instance;
     }
-    return $this->instance;
-}
 
-private function connection()
-{
+    private function conection()
+    {
         try {
             $conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $conn;
         } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            die("Connection failed: " . $e->getMessage() . "<br>");
+        }
     }
-}
 }
