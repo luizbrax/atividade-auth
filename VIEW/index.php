@@ -1,14 +1,12 @@
 <?php
-    if(isset($_GET['Sucesso'])){
-        sleep(1);
-        echo  "<script>
-        alert('Successful Registration!');
-        setTimeout(function() {
-            window.location.href = '../VIEW/login.php';
-        }, 1500);
-        </script>";
-    }
+session_start();
+if (isset($_GET['Sucesso'])) {
+    $_SESSION['msg_sucesso'] = 'Successful Registration!';  
+    header('Location: ../VIEW/login.php');
+};
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,22 +33,41 @@
                     </div>
                     <div>
                         <label for="password">Enter password: </label><br>
-                        <input type="password" name="password" id="pass" required><br>
+                        <input type="password" name="password" id="pass" minlength="8" required><br>
                     </div>
                     <div>
                         <label for="c_password">Confirm password: </label><br>
-                        <input type="password" name="C_password" id="conf" required><br>
+                        <input type="password" name="C_password" id="conf" minlength="8" required><br>
                     </div>
 
                     <div class="botoes">
                         <button class="bnt_rgt" type="submit">Register</button><br>
                     </div>
                 </form>
-                
-                
+
+
             </div>
         </div>
     </div>
 </body>
+
+<script>
+    let senha = document.getElementById('pass');
+    let C_senha = document.getElementById('conf');
+
+    function passwordValidity() {
+        if (senha.value != C_senha.value) {
+            C_senha.setCustomValidity("Passwords don't match!")
+            C_senha.repotValidity();
+            return false;
+        } else {
+            C_senha.setCustomValidity("");
+            return true;
+        }
+
+    }
+
+    C_senha.addEventListener('input', passwordValidity)
+</script>
 
 </html>
