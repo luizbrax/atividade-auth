@@ -11,17 +11,6 @@ if (isset($_SESSION['msg_sucesso'])) {
     unset($_SESSION['msg_sucesso']);
 }
 
-if (isset($_SESSION['erro_login'])) {
-    echo "<script>
-        window.onload = function() {
-            setTimeout(function() {
-                alert('" . $_SESSION['erro_login'] . "');
-            }, 100);
-        };
-    </script>";
-    unset($_SESSION['erro_login']);
-}
-
 
 ?>
 
@@ -40,7 +29,8 @@ if (isset($_SESSION['erro_login'])) {
         <div class="box_rgt">
             <div class="cadastro">
                 <h1 class="h1_log">Login</h1>
-                <form action="../CONTROLLER/loginController.php">
+                <form action="../CONTROLLER/authController.php" method="POST">
+
                     <div>
                         <label for="name">Enter the chosen name: </label><br>
                         <input type="text" name="name" id="name" required><br>
@@ -62,12 +52,11 @@ if (isset($_SESSION['erro_login'])) {
                         <button class="bnt_rgt" type="submit">Login</button><br>
                     </div>
                 </form>
+                
+
             </div>
         </div>
     </div>
 </body>
 
 </html>
-<?php
-
-?>

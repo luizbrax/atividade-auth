@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_GET['Sucesso'])) {
-    $_SESSION['msg_sucesso'] = 'Successful Registration!';  
+    $_SESSION['msg_sucesso'] = 'Successful Registration!';
     header('Location: ../VIEW/login.php');
 };
 ?>
@@ -44,7 +44,9 @@ if (isset($_GET['Sucesso'])) {
                         <button class="bnt_rgt" type="submit">Register</button><br>
                     </div>
                 </form>
-
+                <div >
+                    <a href="login.php">Do you have e-mail?</a>
+                </div>
 
             </div>
         </div>
