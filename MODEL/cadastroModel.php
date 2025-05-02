@@ -14,7 +14,7 @@ function register($name, $email, $password){
     $stmt->execute([$name, $email]);
 
     $idPessoa = $instance->lastInsertId();
-    $sql = "INSERT INTO usuario (nome, senha, id_pessoa) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO usuario (nome, senha, fk_pessoa) VALUES (?, ?, ?)";
     $stmt = $instance->prepare($sql);
     $stmt->execute([$name, $hashed_password, $idPessoa]);
 
@@ -22,3 +22,4 @@ function register($name, $email, $password){
 
     return $result;
 }
+

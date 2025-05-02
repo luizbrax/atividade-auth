@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_GET['Sucesso'])) {
-    $_SESSION['msg_sucesso'] = 'Successful Registration!';  
+    $_SESSION['msg_sucesso'] = 'Successful Registration!';
     header('Location: ../VIEW/login.php');
 };
 ?>
@@ -13,7 +13,7 @@ if (isset($_GET['Sucesso'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>AUTH</title>
 </head>
 
@@ -44,7 +44,9 @@ if (isset($_GET['Sucesso'])) {
                         <button class="bnt_rgt" type="submit">Register</button><br>
                     </div>
                 </form>
-
+                <div >
+                    <a href="login.php">Do you have e-mail?</a>
+                </div>
 
             </div>
         </div>

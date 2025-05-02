@@ -5,11 +5,12 @@ if (isset($_SESSION['msg_sucesso'])) {
         window.onload = function() {
             setTimeout (function() {
                 alert('" . $_SESSION['msg_sucesso'] . "');
-            }, 100);s
+            }, 100);
         };
     </script>";
     unset($_SESSION['msg_sucesso']);
-}   
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@ if (isset($_SESSION['msg_sucesso'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>AUTH</title>
 </head>
 
@@ -27,27 +28,30 @@ if (isset($_SESSION['msg_sucesso'])) {
         <div class="box_rgt">
             <div class="cadastro">
                 <h1 class="h1_log">Login</h1>
+                <form action="../CONTROLLER/authController.php" method="POST">
 
-                <div>
-                    <label for="name">Enter the chosen name: </label><br>
-                    <input type="text" name="lname" id="name" required><br>
-                </div>
-                <div>
-                    <label for="email">Enter your email: </label><br>
-                    <input type="email" name="lemail" id="email" required><br>
-                </div>
-                <div>
-                    <label for="password">Enter your password: </label><br>
-                    <input type="password" name="lpassword" id="pass" required><br>
-                </div>
+                    <div>
+                        <label for="name">Enter the chosen name: </label><br>
+                        <input type="text" name="l_name" id="name" required><br>
+                    </div>
+                    <div>
+                        <label for="email">Enter your email: </label><br>
+                        <input type="email" name="l_email" id="email" required><br>
+                    </div>
+                    <div>
+                        <label for="password">Enter your password: </label><br>
+                        <input type="password" name="l_password" id="pass" minlength="8" required><br>
+                    </div>
 
-                <div>
-                    <a href="verificar_email.php" target="_blank">Are you forgot your password?</a>
-                </div>
+                    <div>
+                        <a href="verificar_email.php" target="_blank">Are you forgot your password?</a>
+                    </div>
 
-                <div>
-                    <button class="bnt_rgt" type="submit">Login</button><br>
-                </div>
+                    <div class="botoes">
+                        <button class="bnt_rgt" type="submit">Login</button><br>
+                    </div>
+                </form>
+                
 
             </div>
         </div>
