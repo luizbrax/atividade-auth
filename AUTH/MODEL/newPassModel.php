@@ -1,5 +1,5 @@
 <?php
-require '../service/conexao.php';
+require '../service/conexaoP.php';
 
 function alterarSenhaNoBanco($email, $newPassword)
 {

@@ -51,11 +51,6 @@ if (isset($_SESSION['msg_lg_erro'])) {
             <div class="cadastro">
                 <h1 class="h1_log">Login</h1>
                 <form action="../CONTROLLER/authController.php" method="POST">
-
-                    <div>
-                        <label for="name">Enter the chosen name: </label><br>
-                        <input type="text" name="l_name" id="name" required><br>
-                    </div>
                     <div>
                         <label for="email">Enter your email: </label><br>
                         <input type="email" name="l_email" id="email" required><br>
